@@ -1,0 +1,13 @@
+        guard let shapeIndex = collage.shapes.firstIndex(where: {
+            $0.id == id
+        }) else {
+            return collage
+        }
+        
+        var newCollage = collage
+        
+        newCollage.shapes[shapeIndex] = shapeReducer.reduce(
+            newCollage.shapes[shapeIndex],
+            action
+        )
+        
